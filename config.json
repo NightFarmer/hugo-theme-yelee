@@ -1,6 +1,7 @@
 {
   "params": {
     "author": "NightFarmer",
+    "title": "",
     "subtitle": "理论指导实践，实践深化理论",
     "description": "Tesla's Awesome Hugo Site",
     "root_url": "",
@@ -20,6 +21,11 @@
       "所有文章": "/archives/",
       "标签云": "/tags/",
       "关于我": "/about/"
+    },
+    "visit_counter": {
+      "on": true,
+      "site_visit": "本站到访数",
+      "page_visit": "本页阅读量"
     }
   }
 }

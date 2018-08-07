@@ -1,0 +1,18 @@
+{{partial "header.html" .}}
+<body>
+<div id="container">
+    <div class="left-col">
+        {{partial "left-col.html" .}}
+    </div>
+    <div class="mid-col">
+        {{partial "mobile-nav.html" .}}
+        <div class="body-wrap">
+            <%- body %>
+            {{partial "dev.html" .}}
+        </div>
+        {{partial "footer.html" .}}
+    </div>
+    {{partial "after-footer.html" .}}
+</div>
+</body>
+</html>

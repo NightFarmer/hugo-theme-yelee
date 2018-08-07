@@ -1,0 +1,30 @@
+
+<script src="js/GithubRepoWidget.js"></script>
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+<%- partial('_partial/background') %>
+<%- partial('google-analytics') %>
+<% if (theme.mathjax){ %>
+    <%- partial('mathjax') %>
+<% } %>
+<%- partial('scrolling-button') %>
+<%- partial('_partial/hide-labels') %>
+<% if (theme.jquery_ui){ %>
+    <script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<% } %>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script>
+    // (function(){
+    //     var bp = document.createElement('script');
+    //     var curProtocol = window.location.protocol.split(':')[0];
+    //     if (curProtocol === 'https') {
+    //         bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    //     }
+    //     else {
+    //         bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    //     }
+    //     var s = document.getElementsByTagName("script")[0];
+    //     s.parentNode.insertBefore(bp, s);
+    // })();
+</script>

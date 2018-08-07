@@ -1,0 +1,114 @@
+<div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="{{ .Site.Params.root_url}}" class="profilepic">
+            <img src="{{ .Site.Params.root_url}}{{ .Site.Params.avatar}}" class="animated zoomIn js-avatar">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="{{ .Site.Params.root_url}}">{{ .Site.Params.author}}</a></h1>
+        </hgroup>
+
+        {{ if .Site.Params.subtitle }}
+        <p class="header-subtitle">{{ .Site.Params.subtitle }}</p>
+        {{ end }}
+
+        {{ if false }}
+        <form><input type="text" class="search" placeholder=" Search..."></form>
+        {{ end }}
+
+
+        {{ if .Site.Params.tagcloud }}
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+
+                        {{ if .Site.Params.friends }}
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        {{ end }}
+
+                        {{ if .Site.Params.aboutme }}
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        {{ end }}
+                    </div>
+
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        {{ if .Site.Params.friends }}
+                        <li>友情链接</li>
+                        {{ end }}
+
+                        {{ if .Site.Params.aboutme }}
+                        <li>关于我</li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+        {{ end }}
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        {{ range $key, $value := .Site.Params.menu }}
+                            <li><a href="{{ $.Site.Params.root_url}}{{ $value }}">{{ $key }}</a></li>
+                        {{ end }}
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            {{ range $key, $value := $.Site.Params.subnav }}
+                                <li id="{{ $key }}"><a class="{{ $key }}" target="_blank" href="{{ $value }}" title="{{ $key }}"></a></li>
+                            {{ end }}
+                        </ul>
+                    </nav>
+                </section>
+
+                {{ if .Site.Params.tagcloud }}
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <%- tagcloud() %>
+                    </div>
+                </section>
+                {{ end }}
+
+                {{ if .Site.Params.friends }}
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    {{ range $key, $value := .Site.Params.friends }}
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="{{ $value }}">{{ $key }}</a>
+                    {{ end }}
+                    </div>
+                </section>
+                {{ end }}
+
+                {{ if .Site.Params.aboutme }}
+                {{ if not .Site.Params.friends }}
+                <section class="switch-part switch-part3">
+                {{else}}
+                <section class="switch-part switch-part4">
+                {{ end }}
+                    <div id="js-aboutme">{{ .Site.Params.aboutme }}</div>
+                </section>
+                {{ end }}
+            </div>
+        </div>
+    </header>
+</div>

@@ -1,0 +1,25 @@
+{
+  "params": {
+    "author": "NightFarmer",
+    "subtitle": "理论指导实践，实践深化理论",
+    "description": "Tesla's Awesome Hugo Site",
+    "root_url": "",
+    "avatar": "img/avatar.png",
+    "tagcloud": true,
+    "aboutme": "我就是我，是不一样的烟火",
+    "friends": {
+      "友链1": "http://www.baidu.com",
+      "GitHub开源": "http://www.baidu.com"
+    },
+    "subnav": {
+      "Email": "mailto:nightfarmer@163.com",
+      "GitHub": "https://github.com/NightFarmer"
+    },
+    "menu": {
+      "主页": "/",
+      "所有文章": "/archives/",
+      "标签云": "/tags/",
+      "关于我": "/about/"
+    }
+  }
+}

@@ -1,0 +1,104 @@
+<script>
+    // document.write('<script src="http://'
+    //     + (location.host || 'localhost').split(':')[0]
+    //     + ':1313/livereload.js?mindelay=10"></'
+    //     + 'script>')
+</script>
+<div>
+
+    {{- .Title -}}
+
+</div>
+
+321 {{ $.Site.Params.author }} 123
+
+<br/>
+变量测试
+{{.Params}}
+<br/>
+{{ $临时变量 := "使用临时变量" }}
+{{ $临时变量 }}
+
+<br/>
+方法测试
+{{add 1 2}}
+
+
+<br/>
+if测试
+{{ if or (isset .Params "alt") (isset .Params "caption") | or true }} Caption {{ end }}
+// 含义：Params中是否设置了alt或者caption或者true
+
+<br/>
+
+{{/* index .Params "disqus_url" | html */}}
+
+
+<br/>
+注释测试
+这块儿内容中{{/*按时发顺丰{{注释内部的花括号被忽略}}的撒打算发*/}}间有注释
+
+
+{{ printf "<!-- 被输出到html的注释Our website is named: %s -->" .Site.Title | safeHTML }}
+
+
+<!-- {{ $author := "Emma Goldman" }} was a great woman. -->
+默认的html注释不会生成到最终文件中，注释中的脚本会被执行且生效。
+{{ $author }}
+
+
+<br/>
+{{.Site}}
+<br/>
+{{.Site.Params}}
+
+<br/>
+<br/>
+所有page
+<ul>
+    {{- range .Site.Pages -}}
+    <li><a href="{{.RelPermalink}}">{{.Title}}</a></li>
+    {{- end -}}
+</ul>
+
+
+<br/>
+截取
+<ul>
+    {{- range first 2 .Site.Pages -}}
+    <li><a href="{{.RelPermalink}}">{{.Title}}</a></li>
+    {{- end -}}
+</ul>
+
+
+<br/>
+.Pages / .Data.Pages - 应该是用户new的页面 Type来自content文件夹的名称 不在文件夹的属于Page
+<ul class="upcoming-events">
+    {{ range .Pages.ByDate }}
+    <li>
+        <a href="{{.RelPermalink}}">打开</a>
+        <!-- add span for event type -->
+        <span>{{ .Type | title }} (大写的Type) —</span>
+        标题：{{ .Title }} ---
+        <!-- add span for event date -->
+        时间：<span>{{ .Date.Format "2006-01-02 03:04" }}</span>
+        at {{ .Params.place }}
+    </li>
+    {{ end }}
+</ul>
+
+<br/>
+Site Pages
+<ul class="upcoming-events">
+    {{ range .Site.Pages.ByDate }}
+    <li>
+        <a href="{{.RelPermalink}}">打开</a>
+        <!-- add span for event type -->
+        <span>{{ .Title | title }} </span>
+        【{{ .Type }}】 时间：
+        <!-- add span for event date -->
+        <span>{{ .Date.Format "2 January at 3:04pm" }}</span>
+        at {{ .Params.place }}
+    </li>
+    {{ end }}
+</ul>

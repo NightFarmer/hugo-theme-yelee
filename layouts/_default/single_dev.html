@@ -1,0 +1,36 @@
+{{partial "header.html" .}}
+
+<h1> 单页面模板 </h1>
+<h1>{{ .Title }}</h1>
+<h1 class="article-title" itemprop="name">
+    {{ .Title }}
+</h1>
+
+{{ .Content }}
+
+--------
+
+<p>{{ .Date.Format "2006年01月02日 03:04:05" }}
+
+    试出来的
+    前缀0的会补全为2位数
+
+    1 01 月
+    2 02 日
+    3 03 时
+    4 04 分
+    5 05 秒
+    6 06 年
+
+    2006 好像是特殊语法 2不再是日而是年份的前缀
+
+---
+
+{{/* .Summary */}}
+{{ if .Truncated }}
+<div class="read-more-link">
+    <a href='{{ .Permalink }}'>阅读全文&raquo;</a>
+</div>
+{{ end }}
+
+{{partial "footer.html" .}}

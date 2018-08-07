@@ -2,16 +2,22 @@
 <script src="js/GithubRepoWidget.js"></script>
 <script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 <script src="/js/main.js"></script>
-<%- partial('_partial/background') %>
+
+{{partial "background.html" .}}
+
 <%- partial('google-analytics') %>
-<% if (theme.mathjax){ %>
+
+{{ if $.Site.Params.mathjax }}
     <%- partial('mathjax') %>
-<% } %>
+{{ end }}
+
 <%- partial('scrolling-button') %>
 <%- partial('_partial/hide-labels') %>
-<% if (theme.jquery_ui){ %>
-    <script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>
-<% } %>
+
+{{ if $.Site.Params.jquery_ui }}
+<script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>
+{{ end }}
+
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 <script>

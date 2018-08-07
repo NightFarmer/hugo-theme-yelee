@@ -26,6 +26,9 @@
       "on": true,
       "site_visit": "本站到访数",
       "page_visit": "本页阅读量"
-    }
+    },
+    "jquery_ui": false,
+    "mathjax": false,
+    "background_image": 5
   }
 }

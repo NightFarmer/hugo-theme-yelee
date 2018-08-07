@@ -29,6 +29,7 @@
     },
     "jquery_ui": false,
     "mathjax": false,
-    "background_image": 5
+    "background_image": 5,
+    "google_analytics": ""
   }
 }

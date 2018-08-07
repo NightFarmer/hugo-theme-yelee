@@ -4,15 +4,14 @@
 <script src="/js/main.js"></script>
 
 {{partial "background.html" .}}
-
-<%- partial('google-analytics') %>
+{{partial "google-analytics.html" .}}
 
 {{ if $.Site.Params.mathjax }}
-    <%- partial('mathjax') %>
+    {{partial "mathjax.html" .}}
 {{ end }}
 
-<%- partial('scrolling-button') %>
-<%- partial('_partial/hide-labels') %>
+{{partial "scrolling-button.html" .}}
+{{partial "hide-labels.html" .}}
 
 {{ if $.Site.Params.jquery_ui }}
 <script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>

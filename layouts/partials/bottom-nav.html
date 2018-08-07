@@ -1,0 +1,30 @@
+{{ if gt .TotalPages 1 }}
+<nav id="page-nav">
+    {{ if .HasPrev }}
+    <a class="extend prev" rel="prev" href="{{.Prev.URL}}">« Prev</a>
+    {{ end }}
+
+    {{ range $i,$_ := .Pagers }}
+        <!--<a class="page-number" href="/">1</a>-->
+        {{ if eq (add 1 $i) $.PageNumber}}
+            <span class="page-number current">{{ add $i 1}}</span>
+        {{ else }}
+            <a class="page-number" href="/page/{{add $i 1 }}/">{{add $i 1}}</a>
+        {{ end }}
+    {{ end }}
+    <!--<span class="page-number current">2</span>-->
+    <!--<a class="page-number" href="/page/3/">3</a>-->
+    <!--<a class="page-number" href="/page/4/">4</a>-->
+    <!--<span class="space">…</span>-->
+    <!--<a class="page-number" href="/page/7/">7</a>-->
+
+    {{ if .HasNext }}
+    <a class="extend next" rel="next" href="{{.Next.URL}}/">Next »</a>
+    {{ end }}
+
+    {{/* .PageNumber */}}
+    {{/* .TotalPages */}}
+
+
+</nav>
+{{ end }}

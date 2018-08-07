@@ -1,10 +1,13 @@
 {
+  "taxonomies": {
+    "archive": "archives"
+  },
   "params": {
     "author": "NightFarmer",
     "title": "",
     "subtitle": "理论指导实践，实践深化理论",
     "description": "Tesla's Awesome Hugo Site",
-    "root_url": "",
+    "root_url": "/",
     "avatar": "img/avatar.png",
     "tagcloud": true,
     "aboutme": "我就是我，是不一样的烟火",
@@ -16,12 +19,24 @@
       "Email": "mailto:nightfarmer@163.com",
       "GitHub": "https://github.com/NightFarmer"
     },
-    "menu": {
-      "主页": "/",
-      "所有文章": "/archives/",
-      "标签云": "/tags/",
-      "关于我": "/about/"
-    },
+    "menu": [
+      {
+        "label": "主页",
+        "link": "/"
+      },
+      {
+        "label": "所有文章",
+        "link": "/post/"
+      },
+      {
+        "label": "标签云",
+        "link": "/tags/"
+      },
+      {
+        "label": "关于我",
+        "link": "/about/"
+      }
+    ],
     "visit_counter": {
       "on": true,
       "site_visit": "本站到访数",

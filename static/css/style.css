@@ -2140,6 +2140,8 @@ li:hover {
 .article-entry pre code {
   text-shadow: none;
   padding: 0;
+
+  background-color: transparent;
 }
 .article-entry .highlight {
   border-radius: 2px;

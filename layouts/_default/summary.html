@@ -1,0 +1,61 @@
+<article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
+        <a href="{{ .Permalink }}" class="article-date">
+            <time datetime="{{.Date}}" itemprop="datePublished">{{ .Date.Format "2006-01-02" }}</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        {{ if $.Site.Params.fancybox}}
+        <input type="hidden" class="isFancy">
+        {{ end }}
+
+        <header class="article-header">
+
+
+            <h1 itemprop="name">
+                <a class="article-title" href="{{ .Permalink }}">{{ .Title }}</a>
+            </h1>
+
+
+        </header>
+
+
+        <div class="article-entry" itemprop="articleBody">
+            {{ .Summary }}
+        </div>
+
+        <div class="article-info article-info-index">
+
+            {{ if .Params.categories }}
+            <div class="article-category tagcloud">
+                {{ range .Params.categories }}
+                <a class="color5" href="/categories/{{.|lower}}/" style="font-size: 12px;">{{.}}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+
+            {{ if .Params.tags }}
+            <div class="article-tag tagcloud">
+                <ul class="article-tag-list">
+                    {{ range .Params.tags }}
+                    <li class="article-tag-list-item">
+                        <a class="article-tag-list-link color1" href="/tags/{{.|lower}}/"
+                           style="font-size: 12px;">{{.}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ end }}
+
+            <p class="article-more-link">
+                <a href="{{ .Permalink }}">more &gt;&gt;</a>
+            </p>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+</article>

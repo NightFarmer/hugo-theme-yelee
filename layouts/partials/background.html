@@ -9,7 +9,7 @@
             }
             else {
                 var backgroundnum = {{ $.Site.Params.background_image }};
-                var backgroundimg = "url({{$.Site.Params.root_url}}/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                var backgroundimg = "url({{$.Site.Params.root_url}}background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
                 $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
             }
         })

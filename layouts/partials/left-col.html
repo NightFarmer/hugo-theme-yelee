@@ -68,7 +68,7 @@
                     <nav class="header-menu">
                         <ul>
                         {{ range .Site.Params.menu }}
-                            <li><a href="{{ $.Site.Params.root_url}}{{ .link }}">{{ .label }}</a></li>
+                            <li><a href="{{ $.Site.Params.root_url}}.{{ .link }}">{{ .label }}</a></li>
                         {{ end }}
                         </ul>
                     </nav>

@@ -2,6 +2,7 @@
   "taxonomies": {
     "archive": "archives"
   },
+  "disablePathToLower" :true,
   "params": {
     "author": "NightFarmer",
     "title": "",

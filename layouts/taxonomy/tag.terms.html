@@ -1,0 +1,227 @@
+{{partial "header.html" .}}
+<body>
+<div id="container">
+    <div class="left-col">
+        {{partial "left-col.html" .}}
+    </div>
+    <div class="mid-col">
+        {{partial "mobile-nav.html" .}}
+        <div class="body-wrap">
+
+
+            <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+
+                <div class="article-meta">
+                    <a href="/tags/index.html" class="article-date">
+                        <time datetime="2016-03-05T19:07:17.000Z" itemprop="datePublished">2016-03-06</time>
+                    </a>
+                </div>
+
+                <div class="article-inner">
+
+                    <input type="hidden" class="isFancy">
+
+
+                    <header class="article-header">
+
+
+                        <h1 class="article-title" itemprop="name">
+                            分类 &amp; 标签
+                        </h1>
+
+
+                    </header>
+
+                    <div class="article-info article-info-post">
+
+
+                        <div class="clearfix"></div>
+                    </div>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+                        <style>
+                            .article-meta {
+                                display: none;
+                            }
+
+                            #container .article .article-title {
+                                padding-right: 0;
+                            }
+
+                            .article-header {
+                                padding: 0;
+                                padding-top: 26px;
+                                border-left: none;
+                                text-align: center;
+                            }
+
+                            .article-header:hover {
+                                border-left: none;
+                            }
+
+                            .article-title {
+                                font-size: 1.6em
+                            }
+
+                            .article-meta {
+                                display: none;
+                            }
+
+                            .article-entry hr {
+                                margin: 0;
+                            }
+
+                            #container .article-info-post.article-info {
+                                display: none;
+                            }
+
+                            #container .article .article-title {
+                                padding: 0;
+                            }
+                        </style>
+
+
+                        <!-- Tag Cloud Page -->
+                        <hr>
+                        <br>
+                        <!--<ul class="category-list">-->
+                            <!--<li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span-->
+                                    <!--class="category-list-count">54</span></li>-->
+                            <!--<li class="category-list-item"><a class="category-list-link" href="/categories/Golang/">Golang</a><span-->
+                                    <!--class="category-list-count">1</span></li>-->
+                            <!--<li class="category-list-item"><a class="category-list-link"-->
+                                                              <!--href="/categories/Java/">Java</a><span-->
+                                    <!--class="category-list-count">1</span></li>-->
+                            <!--<li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span-->
+                                    <!--class="category-list-count">3</span></li>-->
+                            <!--<li class="category-list-item"><a class="category-list-link"-->
+                                                              <!--href="/categories/Linux/">Linux</a><span-->
+                                    <!--class="category-list-count">3</span></li>-->
+                            <!--<li class="category-list-item"><a class="category-list-link"-->
+                                                              <!--href="/categories/ReactNative/">ReactNative</a><span-->
+                                    <!--class="category-list-count">1</span></li>-->
+                            <!--<li class="category-list-item"><a class="category-list-link"-->
+                                                              <!--href="/categories/其他/">其他</a><span-->
+                                    <!--class="category-list-count">2</span></li>-->
+                            <!--<li class="category-list-item"><a class="category-list-link"-->
+                                                              <!--href="/categories/随笔/">随笔</a><span-->
+                                    <!--class="category-list-count">1</span></li>-->
+                        <!--</ul>-->
+
+
+                        <!--<p class="count">-->
+                        <!--<p id="count">-->
+                            <!--已有<span><script>document.write($(".category-list-item").length)</script>8</span>个分类，-->
+                            <!--共计<span><script>document.write($(".tags > a").length)</script>43</span>个标签。-->
+                        <!--</p>-->
+                        <!--</p>-->
+
+                        {{ $data := .Data }}
+                        {{ $Data := .Data }}
+
+                        {{- $maxSize := 35.0 -}}
+                        {{- $minSize := 16.0 -}}
+                        {{- $sizeSpread := ( sub $maxSize $minSize ) -}}
+
+                        {{- $maxCount := ( index $Data.Terms.ByCount 0 ).Count -}}
+                        {{- $minCount := ( index $Data.Terms.ByCount.Reverse 0 ).Count -}}
+                        {{- $countSpread := ( sub $maxCount $minCount ) -}}
+
+
+                        {{- $.Scratch.Set "sizeStep" 0 -}}
+                        {{- if gt $countSpread 0 -}}
+                        {{- $.Scratch.Set "sizeStep" ( div $sizeSpread $countSpread ) -}}
+                        {{- end -}}
+
+                        <div class="tags">
+                            {{ range $data.Terms.Alphabetical }}
+                                {{- $count := .Count -}}
+                                {{- $sizeStep := ( $.Scratch.Get "sizeStep" ) -}}
+                                {{- $size := ( add $minSize ( mul $sizeStep ( sub $count $minCount ) ) ) -}}
+                                <a href="/{{ $data.Plural }}/{{ .Term | urlize }}/" style="font-size: {{ $size }}px; color: #666666">
+                                    {{- with $.Site.GetPage ( print "/" $data.Plural "/" .Term ) -}}
+                                    {{- .Title -}}
+                                    {{- end -}}
+                                </a>
+                            {{ end }}
+                        </div>
+                        <style>
+                            .category-list li {
+                                display: inline-block;
+                                margin: 0 1em .5em 0;
+                                padding: 4px;
+                                border: 1px solid lightgray;
+                                font-size: 1.2em;
+                            }
+
+                            .category-list a {
+                                color: gray;
+                            }
+
+                            .category-list-item:hover a {
+                                color: gray;
+                                text-decoration: none;
+                            }
+
+                            .category-list-count {
+                                margin-left: 2px;
+                                font-size: .9em;
+                            }
+
+                            .article-entry ul li:before {
+                                display: none;
+                            }
+
+                            .article-inner {
+                                text-align: center;
+                            }
+
+                            .tags {
+                                max-width: 40em;
+                                margin: 2em auto;
+                                margin-top: 0em;
+                            }
+
+                            .tags a {
+                                margin-right: 1em;
+                                line-height: 65px;
+                                border-bottom: 1px solid gray;
+                                white-space: nowrap;
+                            }
+
+                            .tags a:hover {
+                                border-bottom: 2px solid black;
+                                text-decoration: none;
+                                font-style: italic;
+                            }
+
+                            #count > span {
+                                margin: auto .2em;
+                                font-weight: bold;
+                            }
+                        </style>
+
+                        <!-- Count tags and categories -->
+                        <script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+                        <script>
+                            $('#count').appendTo('.count');
+                        </script>
+
+
+                    </div>
+
+                </div>
+
+
+            </article>
+        </div>
+        {{partial "footer.html" .}}
+    </div>
+    {{partial "after-footer.html" .}}
+</div>
+</body>
+</html>

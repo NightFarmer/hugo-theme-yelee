@@ -84,7 +84,9 @@
                 {{ if .Site.Params.tagcloud }}
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <%- tagcloud() %>
+                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                            <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" style="font-size: 12px;" class="color{{index (seq 4 | shuffle) 0}}">{{ $name|title }}</a>
+                        {{ end }}
                     </div>
                 </section>
                 {{ end }}

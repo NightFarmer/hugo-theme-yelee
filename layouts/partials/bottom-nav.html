@@ -6,10 +6,10 @@
 
     {{ range $i,$_ := .Pagers }}
         <!--<a class="page-number" href="/">1</a>-->
-        {{ if eq (add 1 $i) $.PageNumber}}
-            <span class="page-number current">{{ add $i 1}}</span>
+        {{ if eq .PageNumber $.PageNumber}}
+            <span class="page-number current">{{ .PageNumber }}</span>
         {{ else }}
-            <a class="page-number" href="/page/{{add $i 1 }}/">{{add $i 1}}</a>
+            <a class="page-number" href="{{.URL}}">{{.PageNumber}}</a>
         {{ end }}
     {{ end }}
     <!--<span class="page-number current">2</span>-->

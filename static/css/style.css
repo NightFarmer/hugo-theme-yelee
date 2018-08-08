@@ -3554,11 +3554,11 @@ body {
     background: rgba(158, 188, 226, 0.9);
 }
 
-li {
+#toc li {
     margin-left: 15px;
     /*list-style: decimal;*/
 }
 
-#TableOfContents > ul > li {
+#toc > #TableOfContents > ul > li {
     margin-left: -10px;
 }

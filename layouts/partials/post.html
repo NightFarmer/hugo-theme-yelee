@@ -185,8 +185,9 @@
 {{ end }}
 
 <ul class="post-list toc-article">
-    {{ range where (where $.Site.Pages.ByDate.Reverse "Section" "post") "IsNode" false }}
-    <li class="post-list-item"><a class="post-list-link" href="{{.RelPermalink}}" target="_blank">{{ .Title }}</a></li>
+    <!--{{/* range where (where $.Site.Pages.ByDate.Reverse "Section" "post") "IsNode" false */}}-->
+    {{ range where (where .Site.Pages "Type" "post").ByDate.Reverse "Kind" "page" }}
+    <li class="post-list-item"><a class="post-list-link" href="{{.RelPermalink}}" target="_blank">11{{ .Title }}</a></li>
     {{ end }}
 </ul>
 

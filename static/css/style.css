@@ -3556,10 +3556,9 @@ body {
 
 li {
     margin-left: 15px;
-    list-style: decimal;
-
+    /*list-style: decimal;*/
 }
 
 #TableOfContents > ul > li {
-    margin-left: 0;
+    margin-left: -10px;
 }

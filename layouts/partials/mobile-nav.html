@@ -1,7 +1,7 @@
 <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"><%=theme.author%></a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">{{ $.Site.Params.author }}</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -9,24 +9,24 @@
                 <img src="{{ $.Site.Params.root_url}}{{ $.Site.Params.avatar}}" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="<%= config.root %>" title="回到主页"><%=theme.author%></a></h1>
+              <h1 class="header-author"><a href="<%= config.root %>" title="回到主页">{{ $.Site.Params.author }}</a></h1>
             </hgroup>
-            <% if (theme.subtitle){ %>
-            <p class="header-subtitle"><%=theme.subtitle%></p>
-            <%}%>
+            {{ if $.Site.Params.subtitle }}
+            <p class="header-subtitle">{{ $.Site.Params.subtitle }}</p>
+            {{ end }}
             <nav class="header-menu">
                 <ul>
-                <% for (var i in theme.menu){ %>
-                    <li><a href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
-                <%}%>
+                    {{ range .Site.Params.menu }}
+                    <li><a href="{{ $.Site.Params.root_url}}.{{ .link }}">{{ .label }}</a></li>
+                    {{ end }}
                 <div class="clearfix"></div>
                 </ul>
             </nav>
             <nav class="header-nav">
                         <ul class="social">
-                            <% for (var i in theme.subnav){ %>
-                                <li id="<%= i %>"><a class="<%= i %>" target="_blank" href="<%- url_for(theme.subnav[i]) %>" title="<%= i %>"></a></li>
-                            <%}%>
+                            {{ range $key, $value := $.Site.Params.subnav }}
+                            <li id="{{ $key }}"><a class="{{ $key }}" target="_blank" href="{{ $value }}" title="{{ $key }}"></a></li>
+                            {{ end }}
                         </ul>
             </nav>
         </header>

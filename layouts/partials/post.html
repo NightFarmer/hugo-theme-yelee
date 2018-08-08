@@ -1,349 +1,354 @@
-<div class="body-wrap">
-    <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
+<article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
 
-        <div class="article-meta">
-            <a href="{{ .Permalink }}" class="article-date">
-                <time datetime="{{.Date}}" itemprop="datePublished">{{ .Date.Format "2006-01-02" }}</time>
-            </a>
-        </div>
+    <div class="article-meta">
+        <a href="{{ .Permalink }}" class="article-date">
+            <time datetime="{{.Date}}" itemprop="datePublished">{{ .Date.Format "2006-01-02" }}</time>
+        </a>
+    </div>
 
-        <div class="article-inner">
-            {{ if $.Site.Params.fancybox}}
-            <input type="hidden" class="isFancy">
-            {{ end }}
-
-            <header class="article-header">
-
-
-                <h1 class="article-title" itemprop="name">
-                    <a class="article-title" href="{{ .Permalink }}">{{ .Title }}</a>
-                </h1>
-
-
-            </header>
-
-            <div class="article-info article-info-post">
-
-                {{ if .Params.categories }}
-                <div class="article-category tagcloud">
-                    {{ range .Params.categories }}
-                    <a class="article-category-link" href="/categories/{{.|lower}}/" style="font-size: 12px;">{{.}}</a>
-                    {{ end }}
-                </div>
-                {{ end }}
-
-                {{ if .Params.tags }}
-                <div class="article-tag tagcloud">
-                    <ul class="article-tag-list">
-                        {{ range .Params.tags }}
-                        <li class="article-tag-list-item">
-                            <a class="article-tag-list-link color1" href="/tags/{{.|lower}}/"
-                               style="font-size: 12px;">{{.}}</a>
-                        </li>
-                        {{ end }}
-                    </ul>
-                </div>
-                {{ end }}
-
-                <div class="clearfix"></div>
-            </div>
-
-
-            <div class="article-entry" itemprop="articleBody">
-
-                {{.Content}}
-
-            </div>
-
-        </div>
-
-        {{ if eq .Type "post" }}
-        <nav id="article-nav">
-
-            {{ with .NextInSection }}
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="{{.RelPermalink}}">
-                    {{.Title}}
-                </a>
-            </div>
-            {{ else }}
-            {{ end }}
-
-            {{ with .PrevInSection }}
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="{{.RelPermalink}}">
-                    {{.Title}}
-                </a>
-            </div>
-            {{ else }}
-            {{ end }}
-
-        </nav>
+    <div class="article-inner">
+        {{ if $.Site.Params.fancybox}}
+        <input type="hidden" class="isFancy">
         {{ end }}
 
-
-    </article>
-
-    <div id="toc" class="toc-article" style="">
-        <strong class="toc-title">文章目录</strong>
-        <ol class="toc">
-            {{ .TableOfContents }}
-        </ol>
-    </div>
-    <style>
-        .left-col .switch-btn {
-            display: none;
-        }
-
-        .left-col .switch-area {
-            display: none;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" style="">
-
-    <script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        var valueHide = "隐藏目录";
-        var valueShow = "显示目录";
-
-        if ($(".left-col").is(":hidden")) {
-            $("#tocButton").attr("value", valueShow);
-        }
-
-        $("#tocButton").click(function () {
-            if ($("#toc").is(":hidden")) {
-                $("#tocButton").attr("value", valueHide);
-                $("#toc").slideDown(320);
-                $(".switch-btn, .switch-area").fadeOut(300);
-            }
-            else {
-                $("#tocButton").attr("value", valueShow);
-                $("#toc").slideUp(350);
-                $(".switch-btn, .switch-area").fadeIn(500);
-            }
-        })
-
-        // if ($(".toc").length < 1) {
-        //     $("#toc, #tocButton").hide();
-        //     $(".switch-btn, .switch-area").show();
-        // }
-    </script>
+        <header class="article-header">
 
 
-    <div class="share">
-        <div class="bdsharebuttonbox">
-            <a href="#" class="bds_more" data-cmd="more"></a>
-            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <h1 class="article-title" itemprop="name">
+                <a class="article-title" href="{{ .Permalink }}">{{ .Title }}</a>
+            </h1>
+
+
+        </header>
+
+        <div class="article-info article-info-post">
+
+            {{ if .Params.categories }}
+            <div class="article-category tagcloud">
+                {{ range .Params.categories }}
+                <a class="article-category-link" href="/categories/{{.|lower}}/" style="font-size: 12px;">{{.}}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+
+            {{ if .Params.tags }}
+            <div class="article-tag tagcloud">
+                <ul class="article-tag-list">
+                    {{ range .Params.tags }}
+                    <li class="article-tag-list-item">
+                        <a class="article-tag-list-link color1" href="/tags/{{.|lower}}/"
+                           style="font-size: 12px;">{{.}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ end }}
+
+            <div class="clearfix"></div>
         </div>
-        <script>
-            window._bd_share_config = {
-                "common": {
-                    "bdSnsKey": {},
-                    "bdText": "",
-                    "bdMini": "2",
-                    "bdMiniList": false,
-                    "bdPic": "",
-                    "bdStyle": "0",
-                    "bdSize": "24"
-                }, "share": {}
-            };
-            with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
-        </script>
+
+
+        <div class="article-entry" itemprop="articleBody">
+
+            {{.Content}}
+
+        </div>
+
     </div>
-
-
-    <!--放评论模块-->
-
 
     {{ if eq .Type "post" }}
-    <div class="scroll" id="post-nav-button">
+    <nav id="article-nav">
 
         {{ with .NextInSection }}
-        <a href="{{.RelPermalink}}" title="上一篇: {{.Title}}">
-            <i class="fa fa-angle-left"></i>
-        </a>
+        <div id="article-nav-newer" class="article-nav-title">
+            <a href="{{.RelPermalink}}">
+                {{.Title}}
+            </a>
+        </div>
         {{ else }}
-        <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         {{ end }}
-
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
 
         {{ with .PrevInSection }}
-        <a href="{{.RelPermalink}}" title="下一篇: {{.Title}}">
-            <i class="fa fa-angle-right"></i>
-        </a>
+        <div id="article-nav-older" class="article-nav-title">
+            <a href="{{.RelPermalink}}">
+                {{.Title}}
+            </a>
+        </div>
         {{ else }}
         {{ end }}
 
-    </div>
+    </nav>
     {{ end }}
 
-    <ul class="post-list toc-article">
-        <li class="post-list-item"><a class="post-list-link" href="/2018/05/31/tmux/" target="_blank">tmux使用详解</a></li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/09/17/golang-GUI-QT/" target="_blank">使用Golang跨平台GUI框架进行桌面应用程序开发</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/09/05/quick_ssh/" target="_blank">Mac/Linux环境实现ssh快速免密登录</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/08/30/databinding-vs-vue/" target="_blank">Kotlin+DataBinding的使用以及和Vue的比较</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/08/10/docker-on-ubuntu/" target="_blank">Ubuntu环境下docker的安装和基本使用</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/07/27/ColorPicker/" target="_blank">制作一款HSV格式的颜色选择器</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/07/13/SpinningView/" target="_blank">3D环形旋转效果的实现</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/07/10/SmartLayoutManager/" target="_blank">百变RecyclerView之自定义LayoutManager</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/07/08/MDEditor/" target="_blank">实现一个简陋的跨平台MarkDown编辑器</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/04/25/RingView/" target="_blank">关于过渡色环形圆角进图条的实现</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/04/20/ProgressView/" target="_blank">镂空的文字反色的加载进度按钮的实现</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/03/15/apache-vh/" target="_blank">配置apache代理支持一个服务器多个域名对应多个服务</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/03/08/MultiFlavors/" target="_blank">使用productFlavors对项目进行多产品发布</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/02/14/RnMobX/" target="_blank">在ReactNative中使用MobX框架管理State实现ListView的局部更新</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2017/02/05/plan2017/" target="_blank">2017年的一些计划</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/12/02/DiffUtil/" target="_blank">Android7.0新增工具DiffUtil详解</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/12/01/GPSUtil/" target="_blank">WGS84、GCJ02、BD09地图坐标系间的坐标转换及坐标距离计算</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/11/21/GreenDao3Doc/" target="_blank">SQLite数据库Orm框架GreenDao3使用详解</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/11/17/MediaPlayer/" target="_blank">使用MediaPlayer开发简单的在线音乐播放器</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/11/17/StethoSummary/" target="_blank">使用来自Facebook的调试神器Stetho对Android应用程序进行调试</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/09/30/InitWinEnv/" target="_blank">使用Chocolatey包管理器一键搭建windows开发环境</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/09/22/AutoBuildApk/" target="_blank">Linux开发环境中使用shell/python脚本快速自动打包并查看apk文件</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/09/12/InterpolatorPreview/" target="_blank">自定义view展示官方Interpolator并扩展自定义Interpolator</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/09/09/ScriptIntrinsicBlur/" target="_blank">使用v8兼容包对图片进行高斯模糊处理/毛玻璃效果</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/09/07/ColorTheme/" target="_blank">给应用增加动态切换主题配色的功能</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/09/01/RxJavaFuncs/" target="_blank">RxJava常用操作符分类总汇</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/08/31/RxJavaClick/" target="_blank">使用RxJava实现多次连续点击的事件监听</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/08/24/GoogleMVP/" target="_blank">浅析Google官方AndroidMVP架构示例</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/08/23/BezierDrawer/" target="_blank">做一个二阶Bezier曲线的绘图工具</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/08/19/ProxyRequst/" target="_blank">使用动态代理对网络请求接口进行面向对象封装</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/08/10/luabridge/" target="_blank">有关Android热更新/热补丁的一种新的解决方案</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/08/08/CircleWave/" target="_blank">通过自定义控件绘制实现雷达/水波纹的动画扩散效果</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/08/04/SatelliteButton/" target="_blank">设计一个通用的卫星菜单</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/08/03/make-a-wheel/"
-                                      target="_blank">造一个“轮子”</a></li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/07/29/make-a-home/" target="_blank">创建一个简单的android桌面APP</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/07/20/PageViewTab/" target="_blank">为ViewPager创建可自由设置高亮样式的TabBar</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/06/24/Recycler-Tree/" target="_blank">实现基于RecyclerView的树形组件封装</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/06/23/Recycler-Grid/" target="_blank">使用ItemTouchHelper对RecyclerView节点进行拖拽排序</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/05/30/AS-SerialVersionUID/" target="_blank">AndroidStudio
-            自动生成 SerialVersionUID</a></li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/05/30/AndroidLocalData/" target="_blank">android轻量级本地数据存储的实现</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/05/25/ReactNative-libs/" target="_blank">ReactNative的一些参考资料以及第三方库</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/05/24/RecyAnim/"
-                                      target="_blank">给滚动列表项增加渐显载入动画</a></li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/04/17/Kotlin-anko/" target="_blank">使用Kotlin开发Android之anko扩展</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/04/13/EventBus/" target="_blank">通过EventBus实现android各组件间数据通讯</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/04/12/Kotlin-yf/" target="_blank">使用Kotlin开发Android的常用技巧</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/03/25/Kotlin-android-EV/" target="_blank">AndroidStudio-Kotlin插件安装配置及工程配置调整</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/03/20/js-android/" target="_blank">使用JavaScript反射调用Android应用Native代码</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/03/19/ExpandAnimList/" target="_blank">设计一个带有动画的可用展开/折叠的列表控件</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/03/16/JitpackUse/" target="_blank">发布自己的开源库到jitpack供gradle依赖调用</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/03/14/listAnim1/" target="_blank">多种样式的列表item动画集合</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/03/13/BaseItemAnimator/" target="_blank">通过扩展ItemAnimator实现对Item的创建/移除动画进行抽象封装</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/03/13/RandomShowTextView/" target="_blank">实现一个随机字符显现/隐藏的TextView</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/03/13/ItemAnimator/" target="_blank">解析DefaultItemAnimator源码了解ItemAnimator动画处理器实现</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/03/12/MoneyInput/" target="_blank">android实现限制数值输入范围的金额EditText控制</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/02/01/View-onMeasure/" target="_blank">源码解析自定义View的onMeasure方法</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/01/15/OKHttpForm/" target="_blank">OKHttp3-多文件form表单形式上传的使用</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/01/12/OKHttpDownload/" target="_blank">OKHttp3-扩展带有进度监听的下载回调</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2016/01/02/openFile/" target="_blank">调用Android设备中已经安装的软件打开各种类型的指定文件</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2015/08/24/AndroidPaintView/" target="_blank">自定义控件-使用Canvas绘图定义一个手写板</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2015/08/20/MakeSwitchButton/" target="_blank">自定义控件-定义一个开关按钮</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2015/06/08/Recycler-pbl/" target="_blank">使用RecyclerView实现无限滚动瀑布流</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2015/06/03/RecyclerView/" target="_blank">RecyclerView的使用</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2015/04/20/AS-HotKey/" target="_blank">AndroidStudio常用快捷键记录</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2015/03/11/AsyncDoc/" target="_blank">Async.js
-            v2.0.0-pre官方文档翻译(未完成)</a></li>
-        <li class="post-list-item"><a class="post-list-link" href="/2015/03/10/jsbind/" target="_blank">深入浅出
-            妙用JavaScript中apply、call、bind</a></li>
-        <li class="post-list-item"><a class="post-list-link" href="/2015/03/06/makelianliankan1/" target="_blank">使用cocos2d引擎开发连连看的尝试</a>
-        </li>
-        <li class="post-list-item"><a class="post-list-link" href="/2014/03/07/AndroidScreenAdaptation/"
-                                      target="_blank">Android屏幕分率适配</a></li>
-    </ul>
-    <script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+</article>
+
+<div id="toc" class="toc-article" style="">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc">
+        {{ .TableOfContents }}
+    </ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" style="">
+
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function () {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    // if ($(".toc").length < 1) {
+    //     $("#toc, #tocButton").hide();
+    //     $(".switch-btn, .switch-area").show();
+    // }
+</script>
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+        <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
     <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target", "_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function () {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function () {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#toc, .switch-btn, .switch-area").toggle();
-                        $("#tocButton").attr("value", valueHide);
-                    }
-                })
-            }
-            else {
-                $(".switch-btn, .switch-area").fadeToggle(300);
-            }
-        })
+        window._bd_share_config = {
+            "common": {
+                "bdSnsKey": {},
+                "bdText": "",
+                "bdMini": "2",
+                "bdMiniList": false,
+                "bdPic": "",
+                "bdStyle": "0",
+                "bdSize": "24"
+            }, "share": {}
+        };
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
     </script>
+</div>
 
 
-    <script>
+<!--放评论模块-->
 
-    </script>
+
+{{ if eq .Type "post" }}
+<div class="scroll" id="post-nav-button">
+
+    {{ with .NextInSection }}
+    <a href="{{.RelPermalink}}" title="上一篇: {{.Title}}">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    {{ else }}
+    <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+    {{ end }}
+
+
+    <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+
+    {{ with .PrevInSection }}
+    <a href="{{.RelPermalink}}" title="下一篇: {{.Title}}">
+        <i class="fa fa-angle-right"></i>
+    </a>
+    {{ else }}
+    {{ end }}
 
 </div>
+{{ end }}
+
+<ul class="post-list toc-article">
+    <li class="post-list-item"><a class="post-list-link" href="/2018/05/31/tmux/" target="_blank">tmux使用详解</a></li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/09/17/golang-GUI-QT/" target="_blank">使用Golang跨平台GUI框架进行桌面应用程序开发</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/09/05/quick_ssh/" target="_blank">Mac/Linux环境实现ssh快速免密登录</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/08/30/databinding-vs-vue/" target="_blank">Kotlin+DataBinding的使用以及和Vue的比较</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/08/10/docker-on-ubuntu/" target="_blank">Ubuntu环境下docker的安装和基本使用</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/07/27/ColorPicker/"
+                                  target="_blank">制作一款HSV格式的颜色选择器</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/07/13/SpinningView/"
+                                  target="_blank">3D环形旋转效果的实现</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/07/10/SmartLayoutManager/" target="_blank">百变RecyclerView之自定义LayoutManager</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/07/08/MDEditor/" target="_blank">实现一个简陋的跨平台MarkDown编辑器</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/04/25/RingView/"
+                                  target="_blank">关于过渡色环形圆角进图条的实现</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/04/20/ProgressView/" target="_blank">镂空的文字反色的加载进度按钮的实现</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/03/15/apache-vh/" target="_blank">配置apache代理支持一个服务器多个域名对应多个服务</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/03/08/MultiFlavors/" target="_blank">使用productFlavors对项目进行多产品发布</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/02/14/RnMobX/" target="_blank">在ReactNative中使用MobX框架管理State实现ListView的局部更新</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2017/02/05/plan2017/" target="_blank">2017年的一些计划</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/12/02/DiffUtil/" target="_blank">Android7.0新增工具DiffUtil详解</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/12/01/GPSUtil/" target="_blank">WGS84、GCJ02、BD09地图坐标系间的坐标转换及坐标距离计算</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/11/21/GreenDao3Doc/" target="_blank">SQLite数据库Orm框架GreenDao3使用详解</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/11/17/MediaPlayer/" target="_blank">使用MediaPlayer开发简单的在线音乐播放器</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/11/17/StethoSummary/" target="_blank">使用来自Facebook的调试神器Stetho对Android应用程序进行调试</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/09/30/InitWinEnv/" target="_blank">使用Chocolatey包管理器一键搭建windows开发环境</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/09/22/AutoBuildApk/" target="_blank">Linux开发环境中使用shell/python脚本快速自动打包并查看apk文件</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/09/12/InterpolatorPreview/" target="_blank">自定义view展示官方Interpolator并扩展自定义Interpolator</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/09/09/ScriptIntrinsicBlur/" target="_blank">使用v8兼容包对图片进行高斯模糊处理/毛玻璃效果</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/09/07/ColorTheme/"
+                                  target="_blank">给应用增加动态切换主题配色的功能</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/09/01/RxJavaFuncs/"
+                                  target="_blank">RxJava常用操作符分类总汇</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/08/31/RxJavaClick/" target="_blank">使用RxJava实现多次连续点击的事件监听</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/08/24/GoogleMVP/" target="_blank">浅析Google官方AndroidMVP架构示例</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/08/23/BezierDrawer/" target="_blank">做一个二阶Bezier曲线的绘图工具</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/08/19/ProxyRequst/" target="_blank">使用动态代理对网络请求接口进行面向对象封装</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/08/10/luabridge/" target="_blank">有关Android热更新/热补丁的一种新的解决方案</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/08/08/CircleWave/" target="_blank">通过自定义控件绘制实现雷达/水波纹的动画扩散效果</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/08/04/SatelliteButton/"
+                                  target="_blank">设计一个通用的卫星菜单</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/08/03/make-a-wheel/"
+                                  target="_blank">造一个“轮子”</a></li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/07/29/make-a-home/" target="_blank">创建一个简单的android桌面APP</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/07/20/PageViewTab/" target="_blank">为ViewPager创建可自由设置高亮样式的TabBar</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/06/24/Recycler-Tree/" target="_blank">实现基于RecyclerView的树形组件封装</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/06/23/Recycler-Grid/" target="_blank">使用ItemTouchHelper对RecyclerView节点进行拖拽排序</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/05/30/AS-SerialVersionUID/" target="_blank">AndroidStudio
+        自动生成 SerialVersionUID</a></li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/05/30/AndroidLocalData/" target="_blank">android轻量级本地数据存储的实现</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/05/25/ReactNative-libs/" target="_blank">ReactNative的一些参考资料以及第三方库</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/05/24/RecyAnim/"
+                                  target="_blank">给滚动列表项增加渐显载入动画</a></li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/04/17/Kotlin-anko/" target="_blank">使用Kotlin开发Android之anko扩展</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/04/13/EventBus/" target="_blank">通过EventBus实现android各组件间数据通讯</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/04/12/Kotlin-yf/" target="_blank">使用Kotlin开发Android的常用技巧</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/03/25/Kotlin-android-EV/" target="_blank">AndroidStudio-Kotlin插件安装配置及工程配置调整</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/03/20/js-android/" target="_blank">使用JavaScript反射调用Android应用Native代码</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/03/19/ExpandAnimList/" target="_blank">设计一个带有动画的可用展开/折叠的列表控件</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/03/16/JitpackUse/" target="_blank">发布自己的开源库到jitpack供gradle依赖调用</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/03/14/listAnim1/"
+                                  target="_blank">多种样式的列表item动画集合</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/03/13/BaseItemAnimator/" target="_blank">通过扩展ItemAnimator实现对Item的创建/移除动画进行抽象封装</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/03/13/RandomShowTextView/" target="_blank">实现一个随机字符显现/隐藏的TextView</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/03/13/ItemAnimator/" target="_blank">解析DefaultItemAnimator源码了解ItemAnimator动画处理器实现</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/03/12/MoneyInput/" target="_blank">android实现限制数值输入范围的金额EditText控制</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/02/01/View-onMeasure/" target="_blank">源码解析自定义View的onMeasure方法</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/01/15/OKHttpForm/" target="_blank">OKHttp3-多文件form表单形式上传的使用</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/01/12/OKHttpDownload/" target="_blank">OKHttp3-扩展带有进度监听的下载回调</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2016/01/02/openFile/" target="_blank">调用Android设备中已经安装的软件打开各种类型的指定文件</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2015/08/24/AndroidPaintView/" target="_blank">自定义控件-使用Canvas绘图定义一个手写板</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2015/08/20/MakeSwitchButton/" target="_blank">自定义控件-定义一个开关按钮</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2015/06/08/Recycler-pbl/" target="_blank">使用RecyclerView实现无限滚动瀑布流</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2015/06/03/RecyclerView/" target="_blank">RecyclerView的使用</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2015/04/20/AS-HotKey/" target="_blank">AndroidStudio常用快捷键记录</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2015/03/11/AsyncDoc/" target="_blank">Async.js
+        v2.0.0-pre官方文档翻译(未完成)</a></li>
+    <li class="post-list-item"><a class="post-list-link" href="/2015/03/10/jsbind/" target="_blank">深入浅出
+        妙用JavaScript中apply、call、bind</a></li>
+    <li class="post-list-item"><a class="post-list-link" href="/2015/03/06/makelianliankan1/" target="_blank">使用cocos2d引擎开发连连看的尝试</a>
+    </li>
+    <li class="post-list-item"><a class="post-list-link" href="/2014/03/07/AndroidScreenAdaptation/"
+                                  target="_blank">Android屏幕分率适配</a></li>
+</ul>
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    $(".post-list").addClass("toc-article");
+    $(".post-list-item a").attr("target", "_blank");
+    $("#post-nav-button > a:nth-child(2)").click(function () {
+        $(".fa-bars, .fa-times").toggle();
+        $(".post-list").toggle(300);
+        if ($(".toc").length > 0) {
+            $("#toc, #tocButton").toggle(200, function () {
+                if ($(".switch-area").is(":visible")) {
+                    $("#toc, .switch-btn, .switch-area").toggle();
+                    $("#tocButton").attr("value", valueHide);
+                }
+            })
+        }
+        else {
+            $(".switch-btn, .switch-area").fadeToggle(300);
+        }
+    })
+</script>
+
+
+<script>
+
+</script>
+

@@ -57,7 +57,7 @@
 
         </div>
 
-
+        {{ if eq .Type "post" }}
         <nav id="article-nav">
 
             {{ with .NextInSection }}
@@ -79,6 +79,7 @@
             {{ end }}
 
         </nav>
+        {{ end }}
 
 
     </article>
@@ -157,6 +158,7 @@
     <!--放评论模块-->
 
 
+    {{ if eq .Type "post" }}
     <div class="scroll" id="post-nav-button">
 
         {{ with .NextInSection }}
@@ -179,6 +181,7 @@
         {{ end }}
 
     </div>
+    {{ end }}
 
     <ul class="post-list toc-article">
         <li class="post-list-item"><a class="post-list-link" href="/2018/05/31/tmux/" target="_blank">tmux使用详解</a></li>

@@ -84,9 +84,11 @@
 
     </article>
 
-    <div id="toc" class="toc-article" style="display: none;">
+    <div id="toc" class="toc-article" style="">
         <strong class="toc-title">文章目录</strong>
-
+        <ol class="toc">
+            {{ .TableOfContents }}
+        </ol>
     </div>
     <style>
         .left-col .switch-btn {
@@ -98,7 +100,7 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" style="display: none;">
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" style="">
 
     <script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
@@ -122,10 +124,10 @@
             }
         })
 
-        if ($(".toc").length < 1) {
-            $("#toc, #tocButton").hide();
-            $(".switch-btn, .switch-area").show();
-        }
+        // if ($(".toc").length < 1) {
+        //     $("#toc, #tocButton").hide();
+        //     $(".switch-btn, .switch-area").show();
+        // }
     </script>
 
 

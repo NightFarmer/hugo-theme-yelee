@@ -83,13 +83,14 @@
 
 </article>
 
-<div id="toc" class="toc-article" style="">
+<div id="toc" class="toc-article" >
     <strong class="toc-title">文章目录</strong>
     <ol class="toc">
         {{ .TableOfContents }}
     </ol>
 </div>
 <style>
+    {{ if eq .Type "post" }}
     .left-col .switch-btn {
         display: none;
     }
@@ -97,9 +98,21 @@
     .left-col .switch-area {
         display: none;
     }
+    {{ else }}
+
+    #tocButton{
+        display: none;
+    }
+    #toc{
+        display: none;
+    }
+
+    {{ end }}
+
+
 </style>
 
-<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" style="">
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" >
 
 <script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 <script>
@@ -124,8 +137,9 @@
     })
 
     // if ($(".toc").length < 1) {
-    //     $("#toc, #tocButton").hide();
-    //     $(".switch-btn, .switch-area").show();
+    //     $("#toc, #tocButton").show();
+    //     $(".switch-btn, .switch-area").hide();
+        // $(".switch-btn, .switch-area").show();
     // }
 </script>
 
@@ -187,7 +201,7 @@
 <ul class="post-list toc-article">
     <!--{{/* range where (where $.Site.Pages.ByDate.Reverse "Section" "post") "IsNode" false */}}-->
     {{ range where (where .Site.Pages "Type" "post").ByDate.Reverse "Kind" "page" }}
-    <li class="post-list-item"><a class="post-list-link" href="{{.RelPermalink}}" target="_blank">11{{ .Title }}</a></li>
+    <li class="post-list-item"><a class="post-list-link" href="{{.RelPermalink}}" target="_blank">{{ .Title }}</a></li>
     {{ end }}
 </ul>
 

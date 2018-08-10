@@ -15,8 +15,8 @@
                     <a href="/archives/2018" class="archive-year">{{.Key}}</a>
                 </div>
 
-                {{- range .Pages }}
                 <div class="archives">
+                {{ range .Pages }}
 
                     <article class="archive-article archive-type-post">
                         <div class="archive-article-inner">
@@ -62,8 +62,8 @@
                             </header>
                         </div>
                     </article>
-                </div>
                 {{ end }}
+                </div>
             </section>
             {{ end }}
 

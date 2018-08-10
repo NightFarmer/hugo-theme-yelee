@@ -43,6 +43,9 @@
     "jquery_ui": false,
     "mathjax": false,
     "background_image": 5,
-    "google_analytics": ""
+    "google_analytics": "",
+    "fancybox": true,
+    "open_in_new": true,
+    "animate": false
   }
 }

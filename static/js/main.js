@@ -8,17 +8,6 @@ require([], function () {
     //     open_in_new: true,
     //     fancybox: true,
     // };
-    var yiliaConfig = {
-        fancybox: true,
-        animate: false,
-        isHome: false,
-        isPost: false,
-        isArchive: true,
-        isTag: false,
-        isCategory: false,
-        open_in_new: false,
-    };
-    yiliaConfig.rootUrl = "/";
 
     var isMobileInit = false;
     var loadMobile = function () {

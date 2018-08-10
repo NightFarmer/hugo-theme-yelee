@@ -6,16 +6,16 @@
 
     <script>
         var yiliaConfig = {
-            fancybox: "",
-            animate: "",
-            isHome: "",
-            isPost: "",
-            isArchive: "",
-            isTag: "",
-            isCategory: "",
-            open_in_new: "",
-            rootUrl: "/",
-        }
+            fancybox: {{ $.Site.Params.fancybox}},
+            animate: {{ $.Site.Params.animate}},
+            isHome: false,
+            isPost: false,
+            isArchive: true,
+            isTag: false,
+            isCategory: false,
+            open_in_new: {{ $.Site.Params.open_in_new}},
+            rootUrl: "{{ $.Site.Params.root_url}}"
+        };
     </script>
 
     <title>{{ .Title }}</title>

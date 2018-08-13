@@ -1,6 +1,6 @@
 # hugo-theme-yelee
 
-![](http://orh51lve9.bkt.clouddn.com/theme-yelee-hugo.png)
+![](http://orh51lve9.bkt.clouddn.com/theme-yelee-hugo.png)  
 基于hugo框架的主题，界面元素移植自hexo框架的[yelee](https://github.com/MOxFIVE/hexo-theme-yelee)  
 效果：[NightFarmer'blog](https://www.nightfarmer.top/)
 

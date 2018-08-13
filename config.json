@@ -2,16 +2,15 @@
   "disablePathToLower": true,
   "params": {
     "author": "NightFarmer",
-    "title": "",
+    "title": "NightFarmer'blog",
     "subtitle": "理论指导实践，实践深化理论",
-    "description": "Tesla's Awesome Hugo Site",
     "root_url": "/",
     "avatar": "img/avatar.png",
     "tagcloud": true,
     "aboutme": "我就是我，是不一样的烟火",
     "friends": {
       "友链1": "http://www.baidu.com",
-      "GitHub开源": "http://www.baidu.com"
+      "友链2": "http://www.baidu.com"
     },
     "subnav": {
       "Email": "mailto:nightfarmer@163.com",

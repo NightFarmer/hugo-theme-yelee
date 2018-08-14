@@ -122,6 +122,9 @@
                         {{ $data := .Data }}
                         {{ $Data := .Data }}
 
+
+                        {{ if $Data.Terms}}
+
                         {{- $maxSize := 35.0 -}}
                         {{- $minSize := 16.0 -}}
                         {{- $sizeSpread := ( sub $maxSize $minSize ) -}}
@@ -148,6 +151,9 @@
                                 </a>
                             {{ end }}
                         </div>
+
+                        {{ end }}
+
                         <style>
                             .category-list li {
                                 display: inline-block;

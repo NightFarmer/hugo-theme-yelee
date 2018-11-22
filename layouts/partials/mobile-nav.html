@@ -5,11 +5,11 @@
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
-            <a href="<%= config.root %>" class="profilepic">
+            <a href="{{ .Site.Params.root_url}}" class="profilepic">
                 <img src="{{ $.Site.Params.root_url}}{{ $.Site.Params.avatar}}" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="<%= config.root %>" title="回到主页">{{ $.Site.Params.author }}</a></h1>
+              <h1 class="header-author"><a href="{{ .Site.Params.root_url}}" title="回到主页">{{ $.Site.Params.author }}</a></h1>
             </hgroup>
             {{ if $.Site.Params.subtitle }}
             <p class="header-subtitle">{{ $.Site.Params.subtitle }}</p>

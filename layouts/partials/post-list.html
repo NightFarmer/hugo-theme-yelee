@@ -7,11 +7,11 @@
     <div class="mid-col">
         {{partial "mobile-nav.html" .}}
         <div class="body-wrap">
-            {{ $paginator := .Paginate (where .Data.Pages "Type" "post").ByDate.Reverse (index .Site.Params "paginate" | default 10) }}
+            {{ $paginator := .Paginate (where .Site.Pages "Kind" "page").ByDate.Reverse (index .Site.Params "paginate" | default 10) }}
             {{ if ne $paginator.TotalPages 0 }}
-            {{ range $paginator.Pages.ByDate.Reverse }}
-            {{ .Render "summary" }}
-            {{ end }}
+                {{ range $paginator.Pages.ByDate.Reverse }}
+                    {{ .Render "summary" }}
+                {{ end }}
             {{ end }}
             {{ partial "bottom-nav.html" $paginator}}
         </div>
